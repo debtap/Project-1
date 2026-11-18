@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#11152b">
+  <title>Hello, world!</title>
+  <style>
+    :root { color-scheme: dark; --ink: #f6f4ff; --muted: #b8b7cf; --accent: #b9ffb5; }
+    * { box-sizing: border-box; }
+    body {
+      min-height: 100vh; margin: 0; display: grid; place-items: center; overflow: hidden;
+      color: var(--ink); font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+      background: radial-gradient(ellipse at 16% 15%, #4b3b83 0, transparent 38%),
+                  radial-gradient(ellipse at 85% 82%, #145d66 0, transparent 42%), #11152b;
+    }
+    .orb { position: fixed; width: 18rem; aspect-ratio: 1; border-radius: 50%; filter: blur(1px); opacity: .5; pointer-events: none; }
+    .orb.one { top: -9rem; right: 12%; background: linear-gradient(135deg,#ffb5d8,#8275ff); }
+    .orb.two { bottom: -12rem; left: 8%; background: linear-gradient(135deg,#9fffe0,#65a9ff); }
+    main { width: min(90vw, 760px); position: relative; padding: clamp(2rem, 7vw, 5rem); border: 1px solid #ffffff25;
+      border-radius: 28px; background: linear-gradient(145deg,#ffffff12,#ffffff06); box-shadow: 0 30px 100px #05071680;
+      backdrop-filter: blur(18px); text-align: center; }
+    .eyebrow { display: inline-flex; align-items: center; gap: .55rem; padding: .5rem .85rem; border: 1px solid #ffffff25;
+      border-radius: 99px; color: var(--accent); font-size: .75rem; letter-spacing: .14em; text-transform: uppercase; }
+    .dot { width: .45rem; height: .45rem; border-radius: 50%; background: var(--accent); box-shadow: 0 0 14px var(--accent); }
+    h1 { margin: 1.35rem 0 .8rem; font-size: clamp(3.5rem, 12vw, 7.5rem); line-height: .95; letter-spacing: -.075em;
+      background: linear-gradient(110deg,#fff 20%,#d5c8ff 55%,#a9ffe2); color: transparent; background-clip: text; }
+    p { max-width: 36rem; margin: 0 auto; color: var(--muted); font-size: clamp(1rem, 2.4vw, 1.2rem); line-height: 1.75; }
+    button { margin-top: 2rem; border: 0; border-radius: 999px; padding: .95rem 1.35rem; color: #11152b; background: var(--accent);
+      font: 700 .95rem inherit; font-family: inherit; cursor: pointer; box-shadow: 0 8px 30px #aaffb533; transition: transform .2s, box-shadow .2s; }
+    button:hover { transform: translateY(-3px); box-shadow: 0 12px 36px #aaffb566; }
+    button:focus-visible { outline: 3px solid white; outline-offset: 4px; }
+    #greeting { min-height: 1.5em; margin-top: 1rem; color: var(--accent); font-size: .9rem; }
+    footer { position: fixed; bottom: 1.25rem; color: #ffffff70; font-size: .75rem; letter-spacing: .08em; }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration: .01ms !important; } }
+  </style>
+</head>
+<body>
+  <div class="orb one" aria-hidden="true"></div><div class="orb two" aria-hidden="true"></div>
+  <main>
+    <span class="eyebrow"><span class="dot"></span> A small beginning</span>
+    <h1>Hello,<br>world!</h1>
+    <p>Every great idea starts somewhere. Here’s to fresh starts, curious minds, and whatever you build next.</p>
+    <button type="button" id="hello">Say hello</button>
+    <div id="greeting" aria-live="polite"></div>
+  </main>
+  <footer>MADE WITH A LITTLE SPARK ✦</footer>
+  <script>
+    document.querySelector('#hello').addEventListener('click', () => {
+      document.querySelector('#greeting').textContent = 'Hello right back at you! ✨';
+    });
+  </script>
+</body>
+</html>
